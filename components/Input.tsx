@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface MessageInputProps {
   onSendMessage: (message: string) => void;
 }
 
 const MessageInput: React.FC<MessageInputProps> = ({ onSendMessage }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       handleSendMessage();
     }
   };
@@ -22,7 +22,7 @@ const MessageInput: React.FC<MessageInputProps> = ({ onSendMessage }) => {
   const handleSendMessage = () => {
     if (!inputValue) return;
     onSendMessage(inputValue);
-    setInputValue('');
+    setInputValue("");
   };
 
   return (
